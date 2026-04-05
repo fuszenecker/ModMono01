@@ -12,4 +12,10 @@ internal class UserService(IUsersRepository usersRepository) : IUserService
         var user = await _usersRepository.GetUserAsync(userId, cancellationToken);
         return user;
     }
+
+    public async Task<int> GetUserCountAsync(CancellationToken cancellationToken)
+    {
+        var count = await _usersRepository.GetUserCountAsync(cancellationToken);
+        return count;
+    }
 }

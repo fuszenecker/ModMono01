@@ -21,7 +21,11 @@ internal class MyBackgroundWorker : BackgroundService
 
         while (!stoppingToken.IsCancellationRequested)
         {
-            var userId = rnd.Next(1, 6); // Simulate random user ID
+            var userCountRequest = new UserCountRequest();
+            var userCount = await _mediator.Send(userCountRequest, stoppingToken);
+            _logger.LogInformation("Current user count: {count}", userCount);
+
+            var userId = rnd.Next(1, userCount + 1); // Simulate random user ID
             var userRequest = new UserRequest { UserId = userId };
             var user = await _mediator.Send(userRequest, stoppingToken);
 

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 
 using ModuleA.DataAccess;
 using ModuleA.DataContext.Contracts;
+using Microsoft.Extensions.Logging;
 
 namespace ModuleA.DataContext;
 
@@ -29,13 +30,15 @@ public static class DbContextExtensions
             services.AddScoped<IUsersRepository>(sp =>
             {
                 var dbContext = sp.GetRequiredService<MyDbContext>();
-                return new UsersRepository(dbContext);
+                var logger = sp.GetRequiredService<ILogger<UsersRepository>>();
+                return new UsersRepository(dbContext, logger);
             });
 
             services.AddScoped<ITestDataSeeder>(sp =>
             {
                 var dbContext = sp.GetRequiredService<MyDbContext>();
-                return new UsersRepository(dbContext);
+                var logger = sp.GetRequiredService<ILogger<UsersRepository>>();
+                return new UsersRepository(dbContext, logger);
             });
 
             return services;

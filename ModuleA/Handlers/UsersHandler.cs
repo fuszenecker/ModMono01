@@ -12,3 +12,11 @@ internal class UserRequestHandler(IUserService userService) : IRequestHandler<Us
         return userService.GetUserAsync(request.UserId, cancellationToken);
     }
 }
+
+internal class UserCountRequestHandler(IUserService userService) : IRequestHandler<UserCountRequest, int>
+{
+    public Task<int> Handle(UserCountRequest request, CancellationToken cancellationToken)
+    {
+        return userService.GetUserCountAsync(cancellationToken);
+    }
+}
