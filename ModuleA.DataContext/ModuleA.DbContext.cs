@@ -16,7 +16,7 @@ internal class MyDbContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.ToTable("Users", "ModuleA");
+            entity.ToTable("users", "module_a");
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
             entity.Property(e => e.Age).IsRequired();
