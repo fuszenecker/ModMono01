@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using ModuleA.DataAccess;
+using ModuleA.DataContext.Contracts;
 
 namespace ModuleA.DataContext;
 
@@ -30,6 +31,11 @@ public static class DbContextExtensions
                 return new UsersRepository(dbContext);
             });
 
+            services.AddScoped<ITestDataSeeder>(sp =>
+            {
+                var dbContext = sp.GetRequiredService<MyDbContext>();
+                return new UsersRepository(dbContext);
+            });
             return services;
         }
     }
