@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Main/Main.csproj" />
+  <Project Path="MainApi/MainApi.csproj" />
+  <Project Path="ModuleA.DataContext/ModuleA.DataContext.csproj" />
+  <Project Path="ModuleA/ModuleA.csproj" />
+</Solution>

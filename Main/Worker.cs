@@ -16,9 +16,12 @@ internal class MyBackgroundWorker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        var rnd = new Random(DateTime.Now.Millisecond);
+
         while (!stoppingToken.IsCancellationRequested)
         {
-            var userRequest = new UserRequest { UserId = 1 };
+            var userId = rnd.Next(1, 6); // Simulate random user ID
+            var userRequest = new UserRequest { UserId = userId };
             var user = await _mediator.Send(userRequest, stoppingToken);
 
             _logger.LogInformation("Worker running at: {time}, returning {user}", DateTimeOffset.Now, user);

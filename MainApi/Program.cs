@@ -4,22 +4,25 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ModuleA;
 using ModuleA.DataContext;
+using ModuleA.Contracts;
 using Microsoft.Extensions.Configuration;
+using MediatR;
 
-var builder = new HostApplicationBuilder();
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration
 	.AddJsonFile("appSettings.json", optional: true, reloadOnChange: true);
 
-builder.Services.AddHostedService<MyBackgroundWorker>();
-
 builder.Services.AddModuleA();
 builder.Services.AddModuleADbContext(builder.Configuration);
 
-var host = builder.Build();
+var app = builder.Build();
 
 // host.Services.GetRequiredService<ITestDataSeeder>()
 //     .SeedTestDataAsync(CancellationToken.None)
 //     .GetAwaiter().GetResult();
 
-await host.RunAsync();
+app.MapGet("/users/{userId}", (int userId, IMediator mediator) => 
+    mediator.Send(new UserRequest { UserId = userId }));
+
+await app.RunAsync();
