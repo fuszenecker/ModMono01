@@ -24,4 +24,7 @@ var app = builder.Build();
 app.MapGet("/users/{userId}", (int userId, IMediator mediator) => 
     mediator.Send(new UserRequest { UserId = userId }));
 
+app.MapGet("/users/count", (IMediator mediator) => 
+    mediator.Send(new UserCountRequest()));
+
 await app.RunAsync();
