@@ -15,7 +15,6 @@ builder.Services.AddHostedService<MyBackgroundWorker>();
 builder.Services.AddModuleA();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<UserRequest>());
 
 builder.Configuration
 	.AddJsonFile("appSettings.json", optional: true, reloadOnChange: true);

@@ -11,6 +11,7 @@ public static class DbContextExtensions
     {
         public IServiceCollection AddModuleADbContext(IConfigurationManager configuration)
         {
+            // Registering the DbContext with a connection string from configuration
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             if (string.IsNullOrWhiteSpace(connectionString))
@@ -22,6 +23,7 @@ public static class DbContextExtensions
             services.AddDbContext<MyDbContext>(options =>
                 options.UseNpgsql(connectionString));
 
+            // Register the UsersRepository with its implementation, ensuring it receives the DbContext via dependency injection.
             services.AddScoped<IUsersRepository>(sp =>
             {
                 var dbContext = sp.GetRequiredService<MyDbContext>();
