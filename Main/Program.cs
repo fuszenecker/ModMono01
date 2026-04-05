@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 
 using ModuleA;
 using ModuleA.DataContext;
+using ModuleA.DataContext.Contracts;
 
 var builder = new HostApplicationBuilder();
 
@@ -19,8 +20,8 @@ builder.Services.AddModuleADbContext(builder.Configuration);
 
 var host = builder.Build();
 
-// host.Services.GetRequiredService<ITestDataSeeder>()
-//     .SeedTestDataAsync(CancellationToken.None)
-//     .GetAwaiter().GetResult();
+host.Services.GetRequiredService<ITestDataSeeder>()
+    .SeedTestDataAsync(CancellationToken.None)
+    .GetAwaiter().GetResult();
 
 await host.RunAsync();
