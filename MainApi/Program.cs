@@ -1,12 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using ModuleA;
-using ModuleA.DataContext;
-using ModuleA.Contracts;
-using Microsoft.Extensions.Configuration;
 using MediatR;
+
+using ModuleA;
+using ModuleA.Contracts;
+using ModuleA.DataContext;
+using ModuleA.DataContext.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +17,7 @@ builder.Services.AddModuleADbContext(builder.Configuration);
 
 var app = builder.Build();
 
-// host.Services.GetRequiredService<ITestDataSeeder>()
+// app.Services.GetRequiredService<ITestDataSeeder>()
 //     .SeedTestDataAsync(CancellationToken.None)
 //     .GetAwaiter().GetResult();
 

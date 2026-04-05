@@ -1,10 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 using ModuleA;
 using ModuleA.DataContext;
-using Microsoft.Extensions.Configuration;
 
 var builder = new HostApplicationBuilder();
 

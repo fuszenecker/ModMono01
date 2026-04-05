@@ -1,6 +1,5 @@
-
-
 using MediatR;
+
 using ModuleA.Contracts;
 using ModuleA.Services;
 

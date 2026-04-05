@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+
 using ModuleA.DataAccess;
 using ModuleA.DataContext.Contracts;
 
@@ -36,6 +37,7 @@ public static class DbContextExtensions
                 var dbContext = sp.GetRequiredService<MyDbContext>();
                 return new UsersRepository(dbContext);
             });
+
             return services;
         }
     }

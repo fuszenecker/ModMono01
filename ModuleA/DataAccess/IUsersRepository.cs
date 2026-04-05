@@ -1,5 +1,3 @@
-
-
 using ModuleA.Contracts;
 
 namespace ModuleA.DataAccess;

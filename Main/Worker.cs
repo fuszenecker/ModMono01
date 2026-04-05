@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
 using MediatR;
+
 using ModuleA.Contracts;
 
 internal class MyBackgroundWorker : BackgroundService
