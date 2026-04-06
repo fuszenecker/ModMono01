@@ -17,9 +17,9 @@ builder.Services.AddModuleADbContext(builder.Configuration);
 
 var app = builder.Build();
 
-// app.Services.GetRequiredService<ITestDataSeeder>()
-//     .SeedTestDataAsync(CancellationToken.None)
-//     .GetAwaiter().GetResult();
+app.Services.GetRequiredService<ITestDataSeeder>()
+    .SeedTestDataAsync(CancellationToken.None)
+    .GetAwaiter().GetResult();
 
 app.MapGet("/users/{userId}", (int userId, IMediator mediator) => 
     mediator.Send(new UserRequest { UserId = userId }));

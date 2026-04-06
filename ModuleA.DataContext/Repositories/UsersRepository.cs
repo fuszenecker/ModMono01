@@ -12,7 +12,9 @@ internal class UsersRepository(MyDbContext dbContext, ILogger<UsersRepository> l
 {
     public async Task<User> GetUserAsync(int userId, CancellationToken cancellationToken)
     {
-        return await dbContext.Users.SingleOrDefaultAsync(u => u.Id == userId, cancellationToken)
+        return await dbContext.Users
+            .Include(u => u.Addresses)
+            .SingleOrDefaultAsync(u => u.Id == userId, cancellationToken)
             ?? throw new KeyNotFoundException($"User with ID {userId} not found.");
     }
 
@@ -23,25 +25,36 @@ internal class UsersRepository(MyDbContext dbContext, ILogger<UsersRepository> l
 
     public async Task SeedTestDataAsync(CancellationToken cancellationToken)
     {
+        var rnd = new Random(DateTime.UtcNow.Millisecond);
+
         var count = await dbContext.Users.CountAsync(cancellationToken);
         logger.LogInformation("Current user count: {count}", count);
 
         if (count == 0)
         {
-            dbContext.Users.AddRange(
-                new User { Id = 1, Name = "Alice", Age = 30 },
-                new User { Id = 2, Name = "Bob", Age = 25 },
-                new User { Id = 3, Name = "Charlie", Age = 35 },
-                new User { Id = 4, Name = "Diana", Age = 28 },
-                new User { Id = 5, Name = "Eve", Age = 32 }
-            );
-
-            await dbContext.SaveChangesAsync(cancellationToken);
-            logger.LogInformation("Seeded initial 5 users");
-
-            for (int i = await dbContext.Users.CountAsync(cancellationToken) + 1; i <= 5000; i++)
+            for (int i = 1; i <= 5000; i++)
             {
-                dbContext.Users.Add(new User { Id = i, Name = $"User {i}", Age = 20 + i });
+                var addresses = new List<Address>();
+
+                for (int j = 0; j < rnd.Next(1, 20); j++)
+                {
+                    addresses.Add(new Address
+                    {
+                        UserId = i,
+                        Street = $"Street {i}-{j}",
+                        City = $"City {i}-{j}",
+                        State = $"State {i}-{j}",
+                        ZipCode = $"Zip {i}-{j}"
+                    });
+                }
+
+                dbContext.Users.Add(new User 
+                { 
+                    Id = i, 
+                    Name = $"User {i}", 
+                    Age = 20 + i,
+                    Addresses = addresses
+                });
 
                 if (i % 1000 == 0)
                 {
