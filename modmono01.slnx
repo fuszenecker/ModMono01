@@ -4,11 +4,13 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Folder Name="/ModuleA/">
+    <Project Path="ModuleA/ModuleA.DataContext.Abstractions/ModuleA.DataContext.Abstractions.csproj" />
+    <Project Path="ModuleA/ModuleA.DataContext/ModuleA.DataContext.csproj" />
+    <Project Path="ModuleA/ModuleA.Services.Abstractions/ModuleA.Services.Abstractions.csproj" />
+    <Project Path="ModuleA/ModuleA.Services/ModuleA.Services.csproj" />
+  </Folder>
   <Project Path="Domain/Domain.csproj" />
   <Project Path="Main/Main.csproj" />
   <Project Path="MainApi/MainApi.csproj" />
-  <Project Path="ModuleA.DataContext.Abstractions/ModuleA.DataContext.Abstractions.csproj" />
-  <Project Path="ModuleA.DataContext/ModuleA.DataContext.csproj" />
-  <Project Path="ModuleA.Services.Abstractions/ModuleA.Services.Abstractions.csproj" />
-  <Project Path="ModuleA.Services/ModuleA.Services.csproj" />
 </Solution>

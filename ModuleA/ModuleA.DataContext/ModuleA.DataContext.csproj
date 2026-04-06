@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\..\Domain\Domain.csproj" />
     <ProjectReference Include="..\ModuleA.DataContext.Abstractions\ModuleA.DataContext.Abstractions.csproj" />
   </ItemGroup>
 
