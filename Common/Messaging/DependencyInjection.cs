@@ -6,7 +6,7 @@ public static class DependencyInjectionExtensions
 {
     extension(IServiceCollection services)
     {
-        public IServiceCollection AddCommandHandler<TCommand, TResult, THandler>()
+        public IServiceCollection AddRequestHandler<TCommand, TResult, THandler>()
             where TCommand : IRequest<TResult>
             where THandler : class, IRequestHandler<TCommand, TResult>
         {
@@ -14,7 +14,15 @@ public static class DependencyInjectionExtensions
             return services;
         }
 
-        public IServiceCollection AddStreamCommandHandler<TCommand, TResult, THandler>()
+        public IServiceCollection AddCommandHandler<TCommand, THandler>()
+            where TCommand : ICommand
+            where THandler : class, ICommandHandler<TCommand>
+        {
+            services.AddScoped<ICommandHandler<TCommand>, THandler>();
+            return services;
+        }
+
+        public IServiceCollection AddStreamRequestHandler<TCommand, TResult, THandler>()
             where TCommand : IRequest<TResult>
             where THandler : class, IStreamRequestHandler<TCommand, TResult>
         {

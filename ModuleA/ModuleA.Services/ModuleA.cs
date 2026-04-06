@@ -12,8 +12,8 @@ public static class ModuleAExtensions
         public IServiceCollection AddModuleA()
         {
             // Register the request handlers for UserRequest and UserCountRequest.
-            services.AddCommandHandler<UserRequest, Domain.Entities.User, Handlers.UserRequestHandler>();
-            services.AddCommandHandler<UserCountRequest, int, Handlers.UserCountRequestHandler>();
+            services.AddRequestHandler<UserRequest, Domain.Entities.User, Handlers.UserRequestHandler>();
+            services.AddRequestHandler<UserCountRequest, int, Handlers.UserCountRequestHandler>();
 
             // Register the IUserService with its implementation UserService.
             services.AddScoped<Services.IUserService, Services.UserService>();
