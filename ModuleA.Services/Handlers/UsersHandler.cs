@@ -1,6 +1,6 @@
 using MediatR;
 
-using Entities;
+using Domain.Entities;
 using ModuleA.Services;
 using ModuleA.Contracts;
 

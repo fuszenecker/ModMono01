@@ -1,5 +1,5 @@
 using MediatR;
-using Entities;
+using Domain.Entities;
 
 namespace ModuleA.Contracts;
 
