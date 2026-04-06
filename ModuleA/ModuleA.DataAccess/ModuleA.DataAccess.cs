@@ -1,9 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-
-using ModuleA.DataAccess;
-using ModuleA.DataAccess.Contracts;
 using Microsoft.Extensions.Logging;
 
 namespace ModuleA.DataAccess;

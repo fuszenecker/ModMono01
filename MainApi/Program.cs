@@ -5,7 +5,6 @@ using MediatR;
 using ModuleA;
 using ModuleA.Contracts;
 using ModuleA.DataAccess;
-using ModuleA.DataAccess.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 

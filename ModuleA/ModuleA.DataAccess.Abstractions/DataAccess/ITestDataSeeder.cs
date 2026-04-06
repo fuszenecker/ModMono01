@@ -1,4 +1,4 @@
-namespace ModuleA.DataAccess.Contracts;
+namespace ModuleA.DataAccess;
 
 public interface ITestDataSeeder
 {

@@ -2,8 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ModuleA.DataAccess;
-using ModuleA.DataAccess.Contracts;
+using ModuleA.DataAccess.Mappings;
 
 namespace ModuleA.DataAccess;
 
@@ -16,19 +15,7 @@ internal class UsersRepository(MyDbContext dbContext, ILogger<UsersRepository> l
             .SingleOrDefaultAsync(u => u.Id == userId, cancellationToken)
             ?? throw new KeyNotFoundException($"User with ID {userId} not found.");
 
-        return new Domain.Entities.User
-        {
-            Name = dbUser.Name,
-            Age = dbUser.Age,
-
-            Addresses = dbUser.Addresses?.Select(a => new Domain.Entities.Address
-            {
-                Street = a.Street,
-                City = a.City,
-                State = a.State,
-                ZipCode = a.ZipCode
-            }).ToList()
-        };
+        return dbUser.ToDomainEntity()!;
     }
 
     public async Task<int> GetUserCountAsync(CancellationToken cancellationToken)
