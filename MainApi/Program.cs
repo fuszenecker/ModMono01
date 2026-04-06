@@ -20,10 +20,6 @@ app.Services.GetRequiredService<ITestDataSeeder>()
     .SeedTestDataAsync(CancellationToken.None)
     .GetAwaiter().GetResult();
 
-app.MapGet("/users/{userId}", (int userId, IMediator mediator) => 
-    mediator.Send(new UserRequest { UserId = userId }));
-
-app.MapGet("/users/count", (IMediator mediator) => 
-    mediator.Send(new UserCountRequest()));
+app.AddEndpoints();
 
 await app.RunAsync();
