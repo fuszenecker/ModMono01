@@ -1,5 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
+using Common.Messaging;
+using ModuleA.Contracts;
+
 namespace ModuleA;
 
 public static class ModuleAExtensions
@@ -8,13 +11,15 @@ public static class ModuleAExtensions
     {
         public IServiceCollection AddModuleA()
         {
-            // Register MediatR handlers from the ModuleA assembly.
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ModuleAExtensions).Assembly));
+            services.AddCommandHandler<UserRequest, Domain.Entities.User, Handlers.UserRequestHandler>();
+            services.AddCommandHandler<UserCountRequest, int, Handlers.UserCountRequestHandler>();
 
             // Register the IUserService with its implementation UserService.
             services.AddScoped<Services.IUserService, Services.UserService>();
 
             return services;
         }
+
+
     }
 }

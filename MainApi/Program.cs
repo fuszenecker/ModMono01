@@ -1,7 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using MediatR;
-
 using ModuleA;
 using ModuleA.Contracts;
 using ModuleA.DataAccess;

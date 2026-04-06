@@ -1,4 +1,4 @@
-using MediatR;
+using Common.Messaging;
 
 using Domain.Entities;
 using ModuleA.Services;
