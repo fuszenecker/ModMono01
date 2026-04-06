@@ -11,6 +11,7 @@ public static class ModuleAExtensions
     {
         public IServiceCollection AddModuleA()
         {
+            // Register the request handlers for UserRequest and UserCountRequest.
             services.AddCommandHandler<UserRequest, Domain.Entities.User, Handlers.UserRequestHandler>();
             services.AddCommandHandler<UserCountRequest, int, Handlers.UserCountRequestHandler>();
 
@@ -19,7 +20,5 @@ public static class ModuleAExtensions
 
             return services;
         }
-
-
     }
 }
