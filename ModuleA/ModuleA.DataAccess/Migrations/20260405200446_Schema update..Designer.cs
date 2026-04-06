@@ -3,16 +3,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ModuleA.DataContext;
+using ModuleA.DataAccess;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace ModuleA.DataContext.Migrations
+namespace ModuleA.DataAccess.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20260404210839_Initial.")]
-    partial class Initial
+    [Migration("20260405200446_Schema update.")]
+    partial class Schemaupdate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,11 +37,12 @@ namespace ModuleA.DataContext.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("users", "module_a");
                 });
 #pragma warning restore 612, 618
         }

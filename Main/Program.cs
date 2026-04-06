@@ -5,8 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using ModuleA;
-using ModuleA.DataContext;
-using ModuleA.DataContext.Contracts;
+using ModuleA.DataAccess;
+using ModuleA.DataAccess.Contracts;
 
 var builder = new HostApplicationBuilder();
 

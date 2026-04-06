@@ -4,8 +4,8 @@ using MediatR;
 
 using ModuleA;
 using ModuleA.Contracts;
-using ModuleA.DataContext;
-using ModuleA.DataContext.Contracts;
+using ModuleA.DataAccess;
+using ModuleA.DataAccess.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 

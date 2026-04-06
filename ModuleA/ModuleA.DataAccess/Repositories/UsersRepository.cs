@@ -2,8 +2,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ModuleA.DataContext;
-using ModuleA.DataContext.Contracts;
+using ModuleA.DataAccess;
+using ModuleA.DataAccess.Contracts;
 
 namespace ModuleA.DataAccess;
 
@@ -47,11 +47,11 @@ internal class UsersRepository(MyDbContext dbContext, ILogger<UsersRepository> l
         {
             for (int i = 1; i <= 5000; i++)
             {
-                var addresses = new List<ModuleA.DataContext.Entities.Address>();
+                var addresses = new List<ModuleA.DataAccess.Entities.Address>();
 
                 for (int j = 0; j < rnd.Next(1, 20); j++)
                 {
-                    addresses.Add(new ModuleA.DataContext.Entities.Address
+                    addresses.Add(new ModuleA.DataAccess.Entities.Address
                     {
                         UserId = i,
                         Street = $"Street {i}-{j}",
@@ -61,7 +61,7 @@ internal class UsersRepository(MyDbContext dbContext, ILogger<UsersRepository> l
                     });
                 }
 
-                dbContext.Users.Add(new ModuleA.DataContext.Entities.User 
+                dbContext.Users.Add(new ModuleA.DataAccess.Entities.User 
                 { 
                     Id = i, 
                     Name = $"User {i}", 

@@ -5,8 +5,8 @@
     <Platform Name="x86" />
   </Configurations>
   <Folder Name="/ModuleA/">
-    <Project Path="ModuleA/ModuleA.DataContext.Abstractions/ModuleA.DataContext.Abstractions.csproj" />
-    <Project Path="ModuleA/ModuleA.DataContext/ModuleA.DataContext.csproj" />
+    <Project Path="ModuleA/ModuleA.DataAccess.Abstractions/ModuleA.DataAccess.Abstractions.csproj" />
+    <Project Path="ModuleA/ModuleA.DataAccess/ModuleA.DataAccess.csproj" />
     <Project Path="ModuleA/ModuleA.Services.Abstractions/ModuleA.Services.Abstractions.csproj" />
     <Project Path="ModuleA/ModuleA.Services/ModuleA.Services.csproj" />
   </Folder>

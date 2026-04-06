@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-using ModuleA.DataContext.Entities;
+using ModuleA.DataAccess.Entities;
 
-namespace ModuleA.DataContext;
+namespace ModuleA.DataAccess;
 
 internal class MyDbContext : DbContext
 {

@@ -1,4 +1,4 @@
-namespace ModuleA.DataContext.Entities;
+namespace ModuleA.DataAccess.Entities;
 
 internal record User
 {

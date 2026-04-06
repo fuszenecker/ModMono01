@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace ModuleA.DataContext.Migrations
+namespace ModuleA.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class AddingAddresses : Migration

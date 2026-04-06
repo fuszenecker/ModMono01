@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace ModuleA.DataContext;
+namespace ModuleA.DataAccess;
 
 internal class MyDbContextFactory : IDesignTimeDbContextFactory<MyDbContext>
 {

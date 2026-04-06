@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace ModuleA.DataContext.Migrations
+namespace ModuleA.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class Schemaupdate : Migration

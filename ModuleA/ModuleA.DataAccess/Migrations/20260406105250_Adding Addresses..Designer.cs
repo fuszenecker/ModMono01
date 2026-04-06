@@ -3,16 +3,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ModuleA.DataContext;
+using ModuleA.DataAccess;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace ModuleA.DataContext.Migrations
+namespace ModuleA.DataAccess.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20260406111409_Fixing Addresses.")]
-    partial class FixingAddresses
+    [Migration("20260406105250_Adding Addresses.")]
+    partial class AddingAddresses
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

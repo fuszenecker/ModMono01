@@ -2,12 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ModuleA.DataContext;
+using ModuleA.DataAccess;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace ModuleA.DataContext.Migrations
+namespace ModuleA.DataAccess.Migrations
 {
     [DbContext(typeof(MyDbContext))]
     partial class MyDbContextModelSnapshot : ModelSnapshot
@@ -21,7 +21,7 @@ namespace ModuleA.DataContext.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("ModuleA.DataContext.Entities.Address", b =>
+            modelBuilder.Entity("ModuleA.DataAccess.Entities.Address", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,7 +59,7 @@ namespace ModuleA.DataContext.Migrations
                     b.ToTable("addresses", "module_a");
                 });
 
-            modelBuilder.Entity("ModuleA.DataContext.Entities.User", b =>
+            modelBuilder.Entity("ModuleA.DataAccess.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -80,16 +80,16 @@ namespace ModuleA.DataContext.Migrations
                     b.ToTable("users", "module_a");
                 });
 
-            modelBuilder.Entity("ModuleA.DataContext.Entities.Address", b =>
+            modelBuilder.Entity("ModuleA.DataAccess.Entities.Address", b =>
                 {
-                    b.HasOne("ModuleA.DataContext.Entities.User", null)
+                    b.HasOne("ModuleA.DataAccess.Entities.User", null)
                         .WithMany("Addresses")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ModuleA.DataContext.Entities.User", b =>
+            modelBuilder.Entity("ModuleA.DataAccess.Entities.User", b =>
                 {
                     b.Navigation("Addresses");
                 });

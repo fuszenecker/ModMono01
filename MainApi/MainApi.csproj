@@ -4,7 +4,7 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\ModuleA\ModuleA.Services.Abstractions\ModuleA.Services.Abstractions.csproj" />
     <ProjectReference Include="..\ModuleA\ModuleA.Services\ModuleA.Services.csproj" />
-    <ProjectReference Include="..\ModuleA\ModuleA.DataContext\ModuleA.DataContext.csproj" />
+    <ProjectReference Include="..\ModuleA\ModuleA.DataAccess\ModuleA.DataAccess.csproj" />
   </ItemGroup>
 
   <ItemGroup>

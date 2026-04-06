@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace ModuleA.DataContext.Migrations
+namespace ModuleA.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class FixingAddresses : Migration
+    public partial class Fixingcontext : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

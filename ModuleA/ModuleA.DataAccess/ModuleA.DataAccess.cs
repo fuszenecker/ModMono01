@@ -3,10 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
 using ModuleA.DataAccess;
-using ModuleA.DataContext.Contracts;
+using ModuleA.DataAccess.Contracts;
 using Microsoft.Extensions.Logging;
 
-namespace ModuleA.DataContext;
+namespace ModuleA.DataAccess;
 
 public static class DbContextExtensions
 {
