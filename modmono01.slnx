@@ -10,5 +10,5 @@
   <Project Path="ModuleA.Abstractions/ModuleA.Abstractions.csproj" />
   <Project Path="ModuleA.DataContext.Abstractions/ModuleA.DataContext.Abstractions.csproj" />
   <Project Path="ModuleA.DataContext/ModuleA.DataContext.csproj" />
-  <Project Path="ModuleA/ModuleA.csproj" />
+  <Project Path="ModuleA.Services/ModuleA.Services.csproj" />
 </Solution>
