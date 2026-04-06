@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ModuleA\ModuleA.csproj" />
     <ProjectReference Include="..\ModuleA.DataContext\ModuleA.DataContext.csproj" />
+    <ProjectReference Include="..\ModuleA.Entities\ModuleA.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

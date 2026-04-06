@@ -1,4 +1,4 @@
-using ModuleA.Contracts;
+using ModuleA.Entities;
 using ModuleA.DataAccess;
 
 namespace ModuleA.Services;

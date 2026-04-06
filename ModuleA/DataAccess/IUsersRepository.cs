@@ -1,10 +1,8 @@
-using ModuleA.Contracts;
-
 namespace ModuleA.DataAccess;
 
 public interface IUsersRepository
 {
-    Task<User> GetUserAsync(int userId, CancellationToken cancellationToken);
+    Task<ModuleA.Entities.User> GetUserAsync(int userId, CancellationToken cancellationToken);
 
     Task<int> GetUserCountAsync(CancellationToken cancellationToken);
 }

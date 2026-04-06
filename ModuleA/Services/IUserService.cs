@@ -1,4 +1,4 @@
-using ModuleA.Contracts;
+using ModuleA.Entities;
 
 namespace ModuleA.Services;
 

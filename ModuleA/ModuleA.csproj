@@ -12,4 +12,8 @@
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ModuleA.Entities\ModuleA.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

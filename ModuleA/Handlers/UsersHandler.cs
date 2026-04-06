@@ -2,6 +2,7 @@ using MediatR;
 
 using ModuleA.Contracts;
 using ModuleA.Services;
+using ModuleA.Entities;
 
 namespace ModuleA.Handlers;
 

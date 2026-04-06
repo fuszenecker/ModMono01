@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-using ModuleA.Contracts;
+using ModuleA.DataContext.Entities;
 
 namespace ModuleA.DataContext;
 

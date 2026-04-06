@@ -2,7 +2,6 @@
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ModuleA.Contracts;
 using ModuleA.DataContext;
 using ModuleA.DataContext.Contracts;
 
@@ -10,12 +9,26 @@ namespace ModuleA.DataAccess;
 
 internal class UsersRepository(MyDbContext dbContext, ILogger<UsersRepository> logger) : IUsersRepository, ITestDataSeeder
 {
-    public async Task<User> GetUserAsync(int userId, CancellationToken cancellationToken)
+    public async Task<ModuleA.Entities.User> GetUserAsync(int userId, CancellationToken cancellationToken)
     {
-        return await dbContext.Users
+        var dbUser = await dbContext.Users
             .Include(u => u.Addresses)
             .SingleOrDefaultAsync(u => u.Id == userId, cancellationToken)
             ?? throw new KeyNotFoundException($"User with ID {userId} not found.");
+
+        return new ModuleA.Entities.User
+        {
+            Name = dbUser.Name,
+            Age = dbUser.Age,
+
+            Addresses = dbUser.Addresses?.Select(a => new ModuleA.Entities.Address
+            {
+                Street = a.Street,
+                City = a.City,
+                State = a.State,
+                ZipCode = a.ZipCode
+            }).ToList()
+        };
     }
 
     public async Task<int> GetUserCountAsync(CancellationToken cancellationToken)
@@ -34,11 +47,11 @@ internal class UsersRepository(MyDbContext dbContext, ILogger<UsersRepository> l
         {
             for (int i = 1; i <= 5000; i++)
             {
-                var addresses = new List<Address>();
+                var addresses = new List<ModuleA.DataContext.Entities.Address>();
 
                 for (int j = 0; j < rnd.Next(1, 20); j++)
                 {
-                    addresses.Add(new Address
+                    addresses.Add(new ModuleA.DataContext.Entities.Address
                     {
                         UserId = i,
                         Street = $"Street {i}-{j}",
@@ -48,7 +61,7 @@ internal class UsersRepository(MyDbContext dbContext, ILogger<UsersRepository> l
                     });
                 }
 
-                dbContext.Users.Add(new User 
+                dbContext.Users.Add(new ModuleA.DataContext.Entities.User 
                 { 
                     Id = i, 
                     Name = $"User {i}", 
