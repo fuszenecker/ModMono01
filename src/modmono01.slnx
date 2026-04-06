@@ -10,6 +10,9 @@
     <Project Path="ModuleA/ModuleA.Services.Abstractions/ModuleA.Services.Abstractions.csproj" />
     <Project Path="ModuleA/ModuleA.Services/ModuleA.Services.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="../tests/ModuleA.Services.Tests/ModuleA.Services.Tests.csproj" />
+  </Folder>
   <Project Path="Common/Common.csproj" />
   <Project Path="Domain/Domain.csproj" />
   <Project Path="Main/Main.csproj" />
