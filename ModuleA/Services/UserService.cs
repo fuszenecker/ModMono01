@@ -1,4 +1,4 @@
-using ModuleA.Entities;
+using Entities;
 using ModuleA.DataAccess;
 
 namespace ModuleA.Services;

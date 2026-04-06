@@ -9,19 +9,19 @@ namespace ModuleA.DataAccess;
 
 internal class UsersRepository(MyDbContext dbContext, ILogger<UsersRepository> logger) : IUsersRepository, ITestDataSeeder
 {
-    public async Task<ModuleA.Entities.User> GetUserAsync(int userId, CancellationToken cancellationToken)
+    public async Task<Entities.User> GetUserAsync(int userId, CancellationToken cancellationToken)
     {
         var dbUser = await dbContext.Users
             .Include(u => u.Addresses)
             .SingleOrDefaultAsync(u => u.Id == userId, cancellationToken)
             ?? throw new KeyNotFoundException($"User with ID {userId} not found.");
 
-        return new ModuleA.Entities.User
+        return new Entities.User
         {
             Name = dbUser.Name,
             Age = dbUser.Age,
 
-            Addresses = dbUser.Addresses?.Select(a => new ModuleA.Entities.Address
+            Addresses = dbUser.Addresses?.Select(a => new Entities.Address
             {
                 Street = a.Street,
                 City = a.City,

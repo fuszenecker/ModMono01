@@ -1,8 +1,8 @@
 using MediatR;
 
-using ModuleA.Contracts;
+using Entities;
 using ModuleA.Services;
-using ModuleA.Entities;
+using ModuleA.Contracts;
 
 namespace ModuleA.Handlers;
 

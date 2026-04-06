@@ -1,4 +1,4 @@
-using ModuleA.Entities;
+using Entities;
 
 namespace ModuleA.Services;
 

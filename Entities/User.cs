@@ -1,4 +1,4 @@
-namespace ModuleA.Entities;
+namespace Entities;
 
 public record User
 {

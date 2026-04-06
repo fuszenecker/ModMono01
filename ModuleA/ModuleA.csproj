@@ -13,7 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModuleA.Entities\ModuleA.Entities.csproj" />
+    <ProjectReference Include="..\Entities\Entities.csproj" />
+    <ProjectReference Include="..\ModuleA.Abstractions\ModuleA.Abstractions.csproj" />
     <ProjectReference Include="..\ModuleA.DataContext.Abstractions\ModuleA.DataContext.Abstractions.csproj" />
   </ItemGroup>
 
