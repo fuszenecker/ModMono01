@@ -6,6 +6,7 @@
   </Configurations>
   <Project Path="Main/Main.csproj" />
   <Project Path="MainApi/MainApi.csproj" />
+  <Project Path="ModuleA.DataContext.Abstractions/ModuleA.DataContext.Abstractions.csproj" />
   <Project Path="ModuleA.DataContext/ModuleA.DataContext.csproj" />
   <Project Path="ModuleA.Entities/ModuleA.Entities.csproj" />
   <Project Path="ModuleA/ModuleA.csproj" />
